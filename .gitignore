@@ -1,0 +1,17 @@
+# -----------------------
+# Visual Studio / Backend
+# -----------------------
+*.user
+*.suo
+*.exe
+*.dll
+bin/
+obj/
+.vs/
+
+# -----------------------
+# Node / Frontend
+# -----------------------
+node_modules/
+dist/
+.env
