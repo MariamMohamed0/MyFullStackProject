@@ -1,0 +1,53 @@
+<h3>Students</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of students">
+      <td>{{s.id}}</td>
+      <td>{{s.name}}</td>
+      <td>{{s.age}}</td>
+      <td>{{getDepartmentName(s.departmentId)}}</td>
+      <td>
+        <button class="btn btn-sm btn-warning" (click)="editStudent(s)">Edit</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteStudent(s.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selectedStudent" class="card p-3 mt-3">
+  <h5>{{selectedStudent.id === 0 ? 'Add Student' : 'Edit Student'}}</h5>
+
+  <div class="mb-2">
+    <label>Name</label>
+    <input class="form-control" [(ngModel)]="selectedStudent.name">
+  </div>
+
+  <div class="mb-2">
+    <label>Age</label>
+    <input type="number" class="form-control" [(ngModel)]="selectedStudent.age">
+  </div>
+
+  <div class="mb-2">
+    <label>Department</label>
+    <select class="form-control" [(ngModel)]="selectedStudent.departmentId">
+      <option [value]="0" disabled>Select Department</option>
+      <option *ngFor="let d of departments" [value]="d.id">{{ d.name }}</option>
+    </select>
+  </div>
+
+  <button class="btn btn-success  mb-3" (click)="saveStudent(selectedStudent)">Save</button>
+  <button class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+</div>
+
+
+<button class="btn btn-primary mt-3" (click)="addNewStudent()">Add New Student</button>

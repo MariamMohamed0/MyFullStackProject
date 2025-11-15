@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.css'; 
+a{
+    margin-left: 10px;
+}
+button{
+    margin-left: 10px;
+}
+table th,td{
+    text-align: center;
+}
